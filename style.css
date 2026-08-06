@@ -1,0 +1,973 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'NexonLv1Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Light.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NexonLv1Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NexonLv1Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+body {
+    font-family: 'NexonLv1Gothic', sans-serif;
+    /* line-height: 150%; */
+}
+
+img { max-width: 100%; }
+
+a { text-decoration: none; }
+
+button,
+input{
+    font: inherit;
+}
+
+
+/*******************************/
+
+#wrap{
+    min-width: 1920px;
+}
+
+#site-header{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    position: fixed;  /* 위치가 항상 고정 */
+    top: 0; left: 0; /* fixed와 함께 위치 조정 */
+    padding: 30px 30px; /* 각각 영역에 값을 주기보다 부모영역에 */
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#site-header.scroll{
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow:0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.icon-header {
+    width: 24px;
+    height: 24px;
+}
+
+.gnb-open{
+    cursor: pointer;
+}
+
+.main-logo {
+    width: 225px;
+    height: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* 자기 자신 너비의 50% */
+}
+
+.header-right{
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-left: auto;
+    cursor: pointer;
+
+}
+.search {
+    width: 190px;
+    height: 24px;
+    position: relative;
+}
+
+.search img{
+    width: 24px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-input {
+    font-size: 12px;
+    padding-top: 5px;
+    /* color: white; 내가 검색할 텍스트 색 */
+    cursor: text;
+
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: black;
+    font-family: 'NexonLv1Gothic';
+}
+
+
+.search-line{
+    width: 160px;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    background-color: black;
+}
+/*****************숨김 메뉴!! *********************/
+
+.gnb-overlay{
+    position: fixed; /* 고정, 뷰포트상에 */
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+    /* display: none; */
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.4s,
+                visibility 0s linear 0.4s;
+}
+
+.gnb-overlay.gnbactive{
+    /* display: block; */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s,
+                visibility 0s;
+}
+
+
+.gnb-content{
+    width: 270px;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    padding: 30px 18px 0; /* padding은 auto 안됨 */
+
+    /* 애니메이션과 위치 조정 */
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+}
+
+.gnb-overlay.gnbactive .gnb-content{
+    transform: translateX(0);
+}
+
+
+body.menu-open{ /* 본문 스크롤 막기 */
+    overflow: hidden;
+}
+
+.gnb-close{
+    width: 24px;
+    height: 24px;
+    /* margin-top: 30px; */
+    cursor: pointer;
+}
+
+.gnb-top{
+    width: 234px;
+    height: 95px;
+    margin: 47px 0 33px;
+    display: flex;
+    flex-direction: column;
+}
+
+.gnb-login{
+    width: 100%;
+    height: 34px;
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+    align-items: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.gnb-login-text{
+    font-size: 20px;
+}
+.gnb-login-arrow{
+    font-size: 12px;
+}
+
+.gnb-login-info{
+    font-size: 12px;
+    color: #808080;
+}
+
+.gnb-line{
+    width: 234px;
+    height: 1px;
+    background-color: #808080;
+    margin-top: auto; /* gnb-top에 flex, column과 같이 적용해야 남는 공간을 전부 위로보내서 맨 아래로 붙여준다 */
+}
+
+.gnb-bottom{
+    width: 234px;
+}
+
+
+.menu-title{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    border: none;
+    background: none;
+    outline: none; /* 클릭시 나타나는 파랑 테두리 제거 */
+    cursor: pointer;
+    color: white;
+}
+
+
+.menu-title img{
+    width: 25px;
+}
+.menu-title:focus-visible{
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.submenu{
+    height: auto;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 14px;
+    background-color: #1B1B1B;
+    
+    display: flex;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.8s ease, padding 0.8s ease;
+    padding: 0 0 0 18px;
+}
+.menu-item.active .submenu{ /* menu-title이 active시 submenu 보임 */
+    /* display: flex; */
+    max-height: 500px;
+    padding: 15px 0 24px 18px;
+}
+
+.submenu a{
+    height: 20px;
+    color: #808080;
+    text-decoration: none;
+}
+
+.submenu-notice{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    /* margin-bottom: 10px; */
+}
+
+.submenu-notice-icon{
+    width: 20px;
+    padding-right: 5px;
+}
+
+.notice-list{
+    display: flex; /* none -> flex*/
+    flex-direction: column;
+    gap: 15px;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease;
+}
+.notice-list.open {
+    /* display: flex; */
+    max-height: 80px;
+
+}
+
+.submenu-line{
+    width: 209px;
+    height: 1px;
+    background-color: #808080;
+}
+
+
+/**************************************/
+
+/*** 메인 배너 ***/
+
+#hero {
+    width: 100%;
+    min-height: 720px;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner-slide {
+    width: 100%;
+    min-height: 720px;
+    position: relative;
+}
+
+.banner{
+    width: 100%;
+    /* flex-shrink: 0; flex안에 공간이 부족해도 줄지않게 */
+    position: absolute; /* 안보이는 배너들 겹쳐놓기 */
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.banner.active{
+    opacity: 1;
+    z-index: 1;
+    position: relative; /* 이 요소의 높이를 부모가 계산 (=banner-slide의 높이) */
+}
+
+.banner-img{
+    width: 100%;
+}
+
+.banner-img img{
+    width: 100%;
+    height: auto;
+    max-width: none;
+    display: block;
+}
+
+.banner-subject{ 
+    width: 400px; height: auto;
+    position: absolute;
+    top: 200px;
+    left: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+ }
+
+.banner-title{
+    font-size: 44px;
+    font-weight: bold;
+}
+
+.banner-subTitle{
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.slide-control{
+    width: 126px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    position: absolute;
+    top: 160px;
+    left: 180px;
+    z-index: 8;
+}
+.ctrl-bar{
+    width: 100px;
+    height: 2px;
+    background-color: black;
+}
+
+.ctrl-bar-play{
+    width: 20px;
+    height: 2px;
+    background-color: white;
+}
+
+.ctrl-btn{
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.ctrl-btn img{
+    width: 100%;
+    height: 100%;
+}
+
+/*** 퀵 메뉴 ***/
+
+#quick-menu{
+    width: 1550px;
+    height: 210px;
+    margin: 75px auto 130px; /* 위 좌우중앙정렬 아래 (130px는 best-seller의 top영역 포함) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quick-menu-inner{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.quick-menu-inner a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.quick-menu-prod{
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    /* border: 1px solid rgba(0, 0, 0, 0.6); 0,0,0은 블랙 0.6은 투명도 */
+    box-shadow: 0 8px 16px #666;
+    overflow: hidden;
+}
+.quick-menu-prod img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.quick-menu-label{
+    width: 100px;
+    height: 60px;
+    font-size: 24px;
+    text-align: center;
+    color: black;
+}
+
+/*** 베스트셀러 ***/
+
+#section-best-seller{
+    width: 1550px;
+    margin: 0 auto 85px; /* 위 좌우중앙정렬 아래 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title {
+    width: 400px;
+    height: 55px;
+    font-size: 48px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+
+.best-seller-list{
+    display: flex;
+    gap: 50px;
+}
+
+.best-seller-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.best-seller-grade{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-size: 36px;
+    position: absolute;
+    z-index: 2;
+    top: 0;  left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.best-seller-prod{
+    width: 350px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.best-seller-prod img{ /* front, back 똑같은 속성을 가지므로 img로 통일해줌 */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity .2s ease;
+}
+
+.best-seller-prod-front{
+    opacity: 1;
+}
+.best-seller-prod-back{
+    opacity: 0;
+}
+
+.best-seller-prod:hover .best-seller-prod-front {
+    opacity: 0;
+}
+
+.best-seller-prod:hover .best-seller-prod-back {
+    opacity: 1;
+}
+
+.best-seller-info {
+    width: 350px;
+    height: 250px;
+    text-align: center;
+    font-size: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.best-seller-prod-title{
+    width: 100%;
+    height: 70px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.best-seller-prod-price{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+.best-seller-prod-text{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+}
+.best-seller-prod-color{
+    width: 290px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.color-all{
+    display: flex;
+    gap: 5px;
+}
+.color{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block; /* span은 기본이 inline요소여서 바꿔야 보임 */
+}
+
+.color-count{
+    font-size: 16px;
+    color: #A09898;
+}
+
+.section-more{
+    width: 180px;
+    height: 50px;
+    margin: 106px auto 30px;
+    border: 2px solid black;
+    font-size: 20px;
+    font-weight: bold;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    position: relative;
+}
+
+.section-more:hover{
+    color: white;
+}
+
+.section-more span{ 
+    position: relative; /* 글자가 배경뒤에 가려지는것 방지 */
+    z-index: 1; 
+}
+
+.section-more::before{
+    content: "";
+    position: absolute;
+
+    width: 0;
+    height: 100%;
+    background-color: black;
+    top: 0;
+    left: 0;
+    transition: width 0.7s ease;
+}
+
+.section-more:hover::before{
+    width: 100%;
+}
+
+/*** 신제품 ***/
+
+#section-new-arrival{
+    width: 1140px;
+    height: auto;
+    margin: 0 auto 118px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-arrival-content{
+    width: 100%;
+    height: 800px;
+    margin-bottom: 35px;
+    display: flex;
+    gap: 90px;
+}
+
+.new-arrival-banner{
+    width: 550px;
+    height: 800px;
+}
+
+.new-arrival-banner img{
+    width: 100%;
+    height: 100%;
+}
+
+.new-arrival-list{
+    /* display: flex;
+    flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+
+.new-arrival-item{
+    width: 230px;
+    height: 375px;
+}
+
+.new-arrival-prod{
+    width: 100%;
+    height: 230px;
+    position: relative;
+}
+.new-arrival-prod img{
+    width: 230px;
+    height: 230px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    transition: opacity .2s ease;
+}
+
+.new-arrival-prod-front{
+    opacity: 1;
+}
+
+.new-arrival-prod-back{
+    opacity: 0;
+}
+
+.new-arrival-prod:hover .new-arrival-prod-front{
+    opacity: 0;
+}
+
+.new-arrival-prod:hover .new-arrival-prod-back{
+    opacity: 1;
+}
+
+.new-arrival-info{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.new-arrival-title{
+    height: 50px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+.new-arrival-price{
+    height: 18px;
+    margin: 10px auto 18px
+}
+.new-arrival-color{
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.badge{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    gap: 5px;
+}
+
+.badge span{
+    width: 44px;
+    height: 20px;
+
+    color: white;
+    font-size: 12px;
+    border-radius: 999px; /* 양끝 둥글게 */
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.badge-best{
+    background-color: black;
+}
+.badge-new{
+    background-color: rgb(60, 60, 60);
+}
+
+
+/*** 하단배너 ***/
+
+.promotion-banner{
+    width: 1140px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 65px;
+    gap: 30px;
+
+    overflow: hidden;
+    position: relative;
+}
+
+.promotion-banner-content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease;
+}
+
+.promotion-banner-content img{
+    width: 100%;
+    height: 238px;
+    flex-shrink: 0;
+}
+
+.banner-dot{
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.dot{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+.dot.active{
+    background-color: black;
+}
+
+.promotion-img{
+    width: 100%;
+    height: auto;
+    padding-top: 62px;
+}
+
+/*** 최하단 ***/
+
+#footer{
+    background-color: black;
+}
+.footer-insta{
+    height: 130px;
+    margin: 300px auto 0;
+    font-size: 48px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ______________________________ */
+.footer-top{
+    background-color: black;
+}
+
+.footer-gallery {
+    width: 100%;
+    aspect-ratio: 1920 / 650;
+    display: flex;
+    cursor: pointer;
+}
+
+.gallery-item{
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item:hover .gallery-img{
+    transform: scale(1.05);
+    
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* img태그는 inline요소이므로 글자처럼 취급되어 아래 여백생김을 방지*/
+}
+
+.gallery-overlay{
+    position: absolute;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.4);
+    inset: 0; /* overlay의 위치지정 (top, right, bottom, left: 0 이라는뜻) */
+    transition: opacity 0.4s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-item:hover .gallery-overlay{
+    opacity: 1;
+}
+
+.link-icon{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.link-icon img{
+    width: 30px;
+    height: 30px;
+}
+
+.gallery-img-large {
+    width: calc(365 / 1920 * 100%);
+    height: 100%;
+}
+
+
+.gallery-column-left {
+    width: calc(267 / 1920 * 100%);
+    height: 100%;
+    margin-left: calc(102 / 1920 * 100%);
+    display: flex;
+    flex-direction: column;
+    gap: calc(27 / 650 * 100%);
+}
+
+.gallery-column-right {
+    width: calc(506 / 1920 * 100%);
+    height: 100%;
+    margin-left: calc(60 / 1920 * 100%);
+    display: flex;
+    flex-direction: column;
+    gap: calc(54 / 650 * 100%);
+}
+
+.gallery-img-large-right {
+    width: calc(518 / 1920 * 100%);
+    height: 100%;
+    margin-left: calc(102 / 1920 * 100%);
+}
+
+/* ______________________________ */
+
+
+
+.footer-bottom{
+    height: auto;
+    background-color: black;
+    color: white;
+    padding-bottom: 60px; /* 맨마지막요소 밑에 여백 */
+}
+.footer-bottom-info{
+    width: 1507px;
+    height: auto;
+    font-size: 12px;
+    display: flex;
+    margin-left: 60px;
+    padding-top: 70px;
+    line-height: 200%;
+    gap: 40px;
+}
+
+.footer-company{
+    width: 445px;
+    height: auto;
+}
+.footer-company span{
+    font-weight: bold;
+}
+.footer-policy{
+    width: 481px;
+    height: auto;
+}
+
+.policy-link{
+    font-weight: bold;
+}
+.policy-check{
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.footer-customer{
+    width: 501px;
+    height: auto;
+}
+.footer-customer .node::before{
+    content: "•";
+    margin-right: 8px;
+}
+
+.footer-logo{
+    width: 910px;
+    height: 100px;
+    margin-top: 190px;
+    margin-left: 60px;
+}
+.footer-logo img{
+    width: 100%;
+    height: 100%;
+}

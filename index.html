@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAC</title>  <!-- 홈페이지 tab 제목-->
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- 메인 헤더 -->
+        <div id="site-header">
+            <div class="icon-header gnb">
+                <img class="gnb-open" src="image/icon/icon_menu.svg" alt="숨김 메뉴"/>
+            </div>
+            
+            <!-- 아코디언 메뉴 구성-->  
+            <div class="gnb-overlay">
+                <div class="gnb-content">
+                    <img class="gnb-close" src="image/icon/icon_close.svg" alt="숨김 메뉴닫기"/>
+                    <div class="gnb-top">
+                        <div class="gnb-login">
+                            <div class="gnb-login-text">LOGIN</div>
+                            <div class="gnb-login-arrow">></div>
+                        </div>
+                        <div class="gnb-login-info">
+                            <p>로그인 후 더 다양한 혜택을 확인해 보세요!</p>
+                        </div>
+                        <div class="gnb-line"></div>
+                    </div>
+
+                    <div class="gnb-bottom">
+                        <div class="con-menu">
+                            <div class="menu-item">
+                                <button class="menu-title">
+                                    <span>ABOUT</span>
+                                    <img class="menu-arrow-down" src="image/icon/icon_arrow_down.png"/>
+                                </button> 
+                                <div class="submenu">
+                                    <a href="#">BRAND STORY</a>
+                                    <a href="#">LOOK</a>
+                                </div> 
+                            </div>
+                            <div class="menu-item">
+                                <button class="menu-title">
+                                    <span>SHOP</span>
+                                    <img class="menu-arrow-down" src="image/icon/icon_arrow_down.png"/>
+                                </button> 
+                                <div class="submenu">
+                                    <a href="#">BEST</a>
+                                    <a href="#">NEW</a>
+                                    <a href="#">DOJACAT</a>
+                                    <a href="#">LIP</a>
+                                    <a href="#">FACE</a>
+                                    <a href="#">EYE</a>
+                                    <a href="#">BRUSH</a>
+                                    <a href="#">SKINCARE</a>
+                                </div> 
+                            </div>
+                            <div class="menu-item">
+                                <button class="menu-title">
+                                    <span>COMMUNITY</span>
+                                    <img class="menu-arrow-down" src="image/icon/icon_arrow_down.png"/>
+                                </button> 
+                                <div class="submenu">
+                                    <button class="submenu-notice">
+                                        <span>NOTICE</span>
+                                        <img class="submenu-notice-icon" src="image/icon/icon_plus.png"/>
+                                    </button>
+                                    <div class="notice-list">
+                                            <a href="#">공지사항</a>
+                                            <a href="#">FAQ</a>
+                                    </div>
+                                    <div class="submenu-line"></div>
+                                    <a href="#">EVENT</a>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a href="#" class="menu-title">
+                                    <span>MEMBERSHIP</span>
+                                </a> 
+                            </div>
+                            <div class="menu-item">
+                                <a href="#" class="menu-title">
+                                    <span>STORE</span>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-logo">
+                <img src="image/icon/mac.svg" alt="헤더 로고"/>
+            </div>
+            <div class="header-right">
+                <div class="search">
+                    <input type="text" class="search-input" placeholder="검색어를 입력하세요"/>
+                    <div class="search-line"></div>
+                    <img src="image/icon/Icon_search.svg"/>
+                </div>
+                <div class="icon-header login">
+                    <img src="image/icon/Icon_user.svg" alt="로그인"/>
+                </div>
+                <div class="icon-header cart">
+                    <img src="image/icon/Icon_shoppingbag.svg" alt="장바구니"/>
+                </div>
+            </div>
+        </div>
+        <!-- 메인 배너 -->
+        <div id="hero">
+            <div class="banner-slide">
+                <div class="banner active">
+                    <div class="banner-img">
+                        <img src="image/mainbanner_1.png" alt="메인배너_1"/>
+                    </div>
+                    <div class="banner-subject">
+                        <span class="banner-title">ODD SPRING</span>
+                        <p class="banner-subTitle">화사한 봄의 온도<br/>오드 스프링 에디션</p>
+                    </div>
+                </div>
+                <div class="banner">
+                    <div class="banner-img">
+                        <img src="image/mainbanner_2.png" alt="메인배너_2"/>
+                    </div>
+                    <div class="banner-subject">
+                        <span class="banner-title">ELLA LIP COMBO</span>
+                        <p class="banner-subTitle">글로벌 브랜드 앰버서더<br/>한정판 립 키트</p>
+                    </div>
+                </div>
+                <div class="banner">
+                    <div class="banner-img">
+                        <img src="image/mainbanner_3.png" alt="메인배너_3"/>
+                    </div>
+                    <div class="banner-subject">
+                        <span class="banner-title">FACE</span>
+                        <p class="banner-subTitle">다양한 피니쉬,커버리지,포뮬러!<br/>모두를 위한 페이스 제품을 만나보세요</p>
+                    </div>
+                </div>
+                 <div class="banner">
+                    <div class="banner-img">
+                        <img src="image/mainbanner_4.png" alt="메인배너_4"/>
+                    </div>
+                    <div class="banner-subject">
+                        <span class="banner-title">STAINGGLASS LIP</span>
+                        <p class="banner-subTitle">빛을 머금고 반사하는 글래스 샤인<br/>글로우 립 틴트</p>
+                    </div>
+                </div>
+                 <div class="banner">
+                    <div class="banner-img">
+                        <img src="image/mainbanner_5.png" alt="메인배너_5"/>
+                    </div>
+                    <div class="banner-subject">
+                        <span class="banner-title">RIQUID COLOR</span>
+                        <p class="banner-subTitle">아이라인부터 턱선까지<br/>멀티 스컬프팅 테크닉</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-control">
+                <div class="ctrl-bar">
+                    <div class="ctrl-bar-play"></div>
+                </div>
+                <div class="ctrl-btn">
+                    <img src="image/icon/icon_pause.svg" class="ctrl-icon"/>
+                </div>
+            </div>
+        </div>
+        <!-- 퀵 메뉴 -->
+        <div id="quick-menu">
+            <div class="quick-menu-inner">
+                <a href="#">
+                    <div class="quick-menu-prod">
+                        <img src="image/prod_arrival.png"/>
+                    </div>
+                    <div class="quick-menu-label">신제품</div>
+                </a>
+                <a href="#">
+                    <div class="quick-menu-prod">
+                        <img src="image/prod_dojacat.png"/>
+                    </div>
+                    <div class="quick-menu-label">도자캣</div>
+                </a>
+                <a href="#">
+                    <div class="quick-menu-prod">
+                        <img src="image/prod_bestseller.png"/>
+                    </div>
+                    <div class="quick-menu-label">베스트<br/>셀러</div>
+                </a>
+                <a href="#">
+                    <div class="quick-menu-prod">
+                        <img src="image/prod_lip.png"/>
+                    </div>
+                    <div class="quick-menu-label">립</div>
+                </a>
+                <a href="#">
+                    <div class="quick-menu-prod">
+                        <img src="image/prod_face.png"/>
+                    </div>
+                    <div class="quick-menu-label">페이스</div>
+                </a>
+                <a href="#">
+                    <div class="quick-menu-prod">
+                        <img src="image/prod_eye.png"/>
+                    </div>
+                    <div class="quick-menu-label">아이</div>
+                </a>
+                <a href="#">
+                    <div class="quick-menu-prod">
+                        <img src="image/prod_brush.png"/>
+                    </div>
+                    <div class="quick-menu-label">브러쉬</div>
+                </a>
+                <a href="#">
+                    <div class="quick-menu-prod">
+                        <img src="image/prod_skincare.png"/>
+                    </div>
+                    <div class="quick-menu-label">스킨케어</div>
+                </a>
+
+            </div>
+        </div>
+        <!-- 베스트 셀러 -->
+        <div id="section-best-seller">
+            <div class="section-title">BEST SELLER</div>
+            <div class="best-seller-list">
+                <div class="best-seller-item">
+                    <div class="best-seller-grade">1</div>
+                    <div class="best-seller-prod">
+                        <img class="best-seller-prod-front" src="image/bestseller_1.png"/>
+                        <img class="best-seller-prod-back" src="image/bestseller_back_1.png"/>
+                    </div>
+                    <div class="best-seller-info">
+                        <div class="best-seller-prod-title">LUSTREGLASS LIPSTICK</div>
+                        <div class="best-seller-prod-price"> &#8361; 39,000</div>
+                        <div class="best-seller-prod-text">가볍고 촉촉한 쉬어 샤인 텍스처<br/>맑고 다채로운 컬러</div>
+                        <div class="best-seller-prod-color">
+                            <div class="color-all">
+                                <span class="color" style="background: #AE3F31"></span>
+                                <span class="color" style="background: #825B52"></span>
+                                <span class="color" style="background: #D74231"></span>
+                                <span class="color" style="background: #B26B73"></span>
+                                <span class="color" style="background: #85312A"></span>
+                                <span class="color" style="background: #B03130"></span>
+                                <span class="color" style="background: #884930"></span>
+                                <span class="color" style="background: #853E38"></span>
+                            </div>
+                            <span class="color-count">+ 22 color</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="best-seller-item">
+                    <div class="best-seller-grade">2</div>
+                    <div class="best-seller-prod">
+                        <img class="best-seller-prod-front" src="image/bestseller_2.png"/>
+                        <img class="best-seller-prod-back" src="image/bestseller_back_2.png"/>
+                    </div>
+                    <div class="best-seller-info" >
+                        <div class="best-seller-prod-title">M・A・CXIMAL SILKY MATTE LIPSTICK</div>
+                        <div class="best-seller-prod-price"> &#8361; 39,000</div>
+                        <div class="best-seller-prod-text">총알 립스틱, 40가지 시그니처 컬러,<br/>실키 매트 피니시</div>
+                        <div class="best-seller-prod-color">
+                            <div class="color-all">
+                                <span class="color" style="background: #9D272B"></span>
+                                <span class="color" style="background: #4F2024"></span>
+                                <span class="color" style="background: #842C2C"></span>
+                                <span class="color" style="background: #8F5F60"></span>
+                                <span class="color" style="background: #763339"></span>
+                                <span class="color" style="background: #7D5046"></span>
+                                <span class="color" style="background: #92584F"></span>
+                                <span class="color" style="background: #7D4748"></span>
+                            </div>
+                            <span class="color-count">+ 42 color</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="best-seller-item">
+                    <div class="best-seller-grade">3</div>
+                    <div class="best-seller-prod">
+                        <img class="best-seller-prod-front" src="image/bestseller_3.png"/>
+                        <img class="best-seller-prod-back" src="image/bestseller_back_3.png"/>
+                    </div>
+                    <div class="best-seller-info" >
+                        <div class="best-seller-prod-title">SUTUDIO FIX LONGWEAR CUSHION<br/>FOUNDATION SPF 50/PA++</div>
+                        <div class="best-seller-prod-price"> &#8361; 73,000</div>
+                        <div class="best-seller-prod-text">새틴광쿠션, 24시간 초밀착 FIX,<br/>컬러-트루 쉐이드</div>
+                        <div class="best-seller-prod-color">
+                            <div class="color-all">
+                                <span class="color" style="background: #E2D3BE"></span>
+                                <span class="color" style="background: #E8C399"></span>
+                                <span class="color" style="background: #D4B384"></span>
+                                <span class="color" style="background: #E3D2BF"></span>
+                                <span class="color" style="background: #E2C19A"></span>
+                                <span class="color" style="background: #EBD0B2"></span>
+                                <span class="color" style="background: #EBD0B2"></span>
+                                <span class="color" style="background: #DBC39E"></span>
+                            </div>
+                            <span class="color-count">+ 4 color</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="best-seller-item">
+                    <div class="best-seller-grade">4</div>
+                    <div class="best-seller-prod">
+                        <img class="best-seller-prod-front" src="image/bestseller_4.png"/>
+                        <img class="best-seller-prod-back" src="image/bestseller_back_4.png"/>
+                    </div>
+                    <div class="best-seller-info" >
+                        <div class="best-seller-prod-title">GLOW PLAY LIGHTFUL C3 <br/>TONE-UP PRIMER SPF50+/PA+++</div>
+                        <div class="best-seller-prod-price"> &#8361; 63,000</div>
+                        <div class="best-seller-prod-text">더욱 화사한 로지 라벤더 톤업 글로우<br/>NEW 로즈 톤업베이스</div>
+                        <div class="best-seller-prod-color">
+                            <div class="color-all">
+                                <span class="color" style="background: #EED2B8"></span>
+                                <span class="color" style="background: #D8C3CE"></span>
+                                <span class="color" style="background: #D4AE9C"></span>
+
+                            </div>
+                            <!-- <span class="color-count">+ 4 color</span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-more">
+                <span>VIEW MORE</span>
+            </div>
+            
+        </div>
+
+        <!-- 신제품 -->
+        <div id="section-new-arrival">
+            <div class="section-title">NEW ARRIVALS</div>
+            <div class="new-arrival-content">
+                <div class="new-arrival-banner">
+                    <img src="image/new_arrival_main.jpeg"/>
+                </div>
+                <div class="new-arrival-list">
+                    <div class="new-arrival-item">
+                        <div class="new-arrival-prod">
+                            <img class="new-arrival-prod-front" src="image/new_arrival_1.png"/>
+                            <img class="new-arrival-prod-back" src="image/new_arrival_back_1.png"/>
+                        </div>
+                        <div class="new-arrival-info">
+                            <div class="new-arrival-title">NEW 러스터글래스 스테인글래스 립 틴트</div>
+                            <div class="new-arrival-price">&#8361; 39,000</div>
+                            <div class="new-arrival-color">
+                                <div class="color-all">
+                                    <span class="color" style="background: #A54E3C"></span>
+                                    <span class="color" style="background: #472135"></span>
+                                    <span class="color" style="background: #6E2E2C"></span>
+                                    <span class="color" style="background: #6D1D3B"></span>
+                                    <span class="color" style="background: #C25F74"></span>
+                                    <span class="color" style="background: #B0413F"></span>
+
+                                </div>
+                                <span class="color-count">+ 5 color</span>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <span class="badge-best">BEST</span>
+                            <span class="badge-new">NEW</span>
+                        </div>
+                    </div>
+                    <div class="new-arrival-item">
+                        <div class="new-arrival-prod">
+                            <img class="new-arrival-prod-front" src="image/new_arrival_2.png"/>
+                            <img class="new-arrival-prod-back" src="image/new_arrival_back_2.png"/>
+                        </div>
+                        <div class="new-arrival-info">
+                            <div class="new-arrival-title">스킨피니쉬 컬러스트럭 블러쉬</div>
+                            <div class="new-arrival-price">&#8361; 42,000</div>
+                            <div class="new-arrival-color">
+                                <div class="color-all">
+                                    <span class="color" style="background: #D19B7E"></span>
+                                    <span class="color" style="background: #C19179"></span>
+                                    <span class="color" style="background: #AD7C73"></span>
+                                    <span class="color" style="background: #9B5D56"></span>
+                                    <span class="color" style="background: #7F513F"></span>
+                                    <span class="color" style="background: #A3645A"></span>
+                                </div>
+                                <span class="color-count">+ 23 color</span>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <!-- <span class="badge-best">BEST</span> -->
+                            <span class="badge-new">NEW</span>
+                        </div>
+                    </div>
+                    <div class="new-arrival-item">
+                        <div class="new-arrival-prod">
+                            <img class="new-arrival-prod-front" src="image/new_arrival_3.png"/>
+                            <img class="new-arrival-prod-back" src="image/new_arrival_back_3.png"/>
+                        </div>
+                        <div class="new-arrival-info">
+                            <div class="new-arrival-title">스킨피니쉬 썬스트럭 브론저</div>
+                            <div class="new-arrival-price">&#8361; 50,000</div>
+                            <div class="new-arrival-color">
+                                <div class="color-all">
+                                    <span class="color" style="background: #D19B85"></span>
+                                    <span class="color" style="background: #B68C7A"></span>
+                                    <span class="color" style="background: #CD9878"></span>
+                                    <span class="color" style="background: #C28E74"></span>
+                                    <span class="color" style="background: #C08A64"></span>
+                                    <span class="color" style="background: #A87757"></span>
+                                </div>
+                                <span class="color-count">+ 23 color</span>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <!-- <span class="badge-best">BEST</span> -->
+                            <span class="badge-new">NEW</span>
+                        </div>
+                    </div>
+                    <div class="new-arrival-item">
+                        <div class="new-arrival-prod">
+                            <img class="new-arrival-prod-front" src="image/new_arrival_4.png"/>
+                            <img class="new-arrival-prod-back" src="image/new_arrival_back_4.png"/>
+                        </div>
+                        <div class="new-arrival-info">
+                            <div class="new-arrival-title">스튜디오 픽스 36아워 스무드앵글스 컨실러</div>
+                            <div class="new-arrival-price">&#8361; 47,000</div>
+                            <div class="new-arrival-color">
+                                <div class="color-all">
+                                    <span class="color" style="background: #BA936E"></span>
+                                    <span class="color" style="background: #C59C76"></span>
+                                    <span class="color" style="background: #C6A780"></span>
+                                    <span class="color" style="background: #CDA176"></span>
+                                    <span class="color" style="background: #CBA37A"></span>
+                                    <span class="color" style="background: #DAC3AE"></span>
+                                </div>
+                                <span class="color-count">+ 5 color</span>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <span class="badge-best">BEST</span>
+                            <!-- <span class="badge-new">NEW</span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-more">
+                <span>
+                    VIEW MORE
+                </span>
+            </div>
+
+        </div>
+
+        <!-- 하단 배너 -->
+        <div id="promotion">
+            <div class="promotion-banner">
+                <div class="promotion-banner-content">
+                    <img src="image/promotion_banner_1.png"/>
+                    <img src="image/promotion_banner_2.png"/>
+                </div>
+                <div class="banner-dot">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            <img src="image/dojacat.png" class="promotion-img" alt="하단 이미지"/>
+        </div>
+        
+        <!-- 최하단 푸터 -->
+        <div id="footer">
+            <div class="footer-insta">@maccosmeticskorea</div>
+            <div class="footer-top"> <!-- footer의 영역이 여러개라면 나누어도되지만 아니면 필요없음 -->
+                <div class="footer-gallery">
+                    <div class="gallery-item gallery-img-large">
+                        <img class="gallery-img" src="image/footerimg_1.jpg"/>
+                        <div class="gallery-overlay">
+                            <div class="link-icon">
+                                <img src="image/icon/icon_external-link.svg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-column-left">
+                        <div class="gallery-item">
+                            <img class="gallery-img" src="image/footerimg_2.png"/>
+                            <div class="gallery-overlay">
+                                <div class="link-icon">
+                                    <img src="image/icon/icon_external-link.svg" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="gallery-img" src="image/footerimg_3.jpg"/>
+                            <div class="gallery-overlay">
+                                <div class="link-icon">
+                                    <img src="image/icon/icon_external-link.svg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-column-right">
+                        <div class="gallery-item">
+                            <img class="gallery-img" src="image/footerimg_4.jpg"/>
+                            <div class="gallery-overlay">
+                                <div class="link-icon">
+                                    <img src="image/icon/icon_external-link.svg" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="gallery-img" src="image/footerimg_5.jpg"/>
+                            <div class="gallery-overlay">
+                                <div class="link-icon">
+                                    <img src="image/icon/icon_external-link.svg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item gallery-img-large-right">
+                        <img class="gallery-img" src="image/footerimg_6.jpg"/>
+                        <div class="gallery-overlay">
+                            <div class="link-icon">
+                                <img src="image/icon/icon_external-link.svg" />
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-info">
+                    <div class="footer-company">
+                        <p>법인명(상호) : 주식회사 맥</p>
+                        <p>대표자 : 이엘씨에이한국(유)</p>
+                        <p>주소 : 서울시 강남구 강남대로 382 (역삼동)</p>
+                        <p>메리츠타워, 06232</p>
+                        <p>사업자등록번호 : 211-81-71889 / <span>사업자정보확인</span></p>
+                        <p>통신판매업신고 : 강남-15737호</p>
+                        <p>호스팅제공자 : (주)엘지유플러스</p>
+                    </div>
+                    <div class="footer-policy">
+                        <p class="policy-link">개인정보처리방침</p>
+                        <p class="policy-link">이용약관</p>
+                        <p>
+                            고객님은 안전거래를 위해 현금 등으로 결제하실 때 저희<br/>
+                            쇼핑몰에서 가입한 토스페이먼츠의 구매안전서비스를<br/>
+                            이용하실 수 있습니다.
+                        </p>
+                        <p class="policy-check">[서비스 가입사실 확인]</p>
+                    </div>
+                    <div class="footer-customer">
+                        <p>고객센터</p>
+                        <p>이메일 : cs@naver.com</p>
+                        <p>고객상담 : 1644 - 3748</p>
+                        <p class="node">Mon - Fri (10:00 - 17:00) / Sat.Sun.Holiday OFF</p>
+                    </div>
+                </div>
+                <div class="footer-logo">
+                    <img src="image/footer_logo.png"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+   <script src="script.js"></script>
+</body>
+
+<!-- 다하고나면 무한 슬라이드 active형식말고 clone(복사) 형식으로 만들어보기 -->
+<!-- 
+1. class 추가/삭제
+2. opacity
+3. hover
+4. setInterval
+5. translateX 
+6. 복사본(clone)
+7. transition 끄기
+8. 순간이동
+9. transition 다시 켜기-->
