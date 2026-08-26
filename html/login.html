@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/common_header.css"/>
+    <link rel="stylesheet" href="../css/login.css"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- defer: js파일은 미리 불러오되 html파일을 끝까지 읽은 다음 실행해라 -->
+    <!-- <script src="script.js" defer></script> -->
+    <script src="../js/common_header.js" defer></script>
+    <script src="../js/login.js" defer></script>
+</head>
+<body>
+    <div id="wrap">
+        <!-- 메인 헤더 -->
+        <div id="site-header">
+            <button type="button" class="icon-header header-back">
+                <img class="back-btn" src="../image/icon/icon_chevron-prev_b.svg" alt="뒤로가기"/>
+            </button>
+            
+            <!-- 메인 로고 -->
+            <div class="main-logo">
+                <img src="../image/icon/mac.svg" alt="헤더 로고"/>
+            </div>
+            <a href="../index.html" class="icon-header header-home">
+                <img src="../image/icon/icon_house.svg" alt="홈"/>
+            </a>
+        </div>
+
+        <!-- 로그인 컨텐츠 -->
+        <div id="login">
+            <div class="login-tab">
+                <button class="login-tab-btn active">로그인</button>
+                <button class="login-tab-btn">계정 생성하기</button>
+            </div>
+            <!-- 로그인 -->
+            <form class="login-form active" novalidate> <!--novalidate: 폼 제출시 브라우저가 기본 유효성 검사 메시지를 표시하지않게함 -->
+                <!-- 공통 -->
+                <div class="login-social">
+                    <button type="button" class="social-btn kakao">
+                        <img src="../image/icon/icon_kakao.png"/>
+                    </button>
+                    <button type="button" class="social-btn naver">
+                        <img src="../image/icon/icon_naver_h56.png"/>
+                    </button>
+                </div>
+                <div class="login-divider">
+                    <span>또는</span>
+                </div>
+                <!---->
+                <div class="login-group">
+                    <div class="input-field">
+                        <input type="email" name="email" class="login-input" placeholder="이메일" autocomplete="email"/>
+                        <!-- autocomplete: 브라우저에 해당 입력란이 어떤 정보를 받는 곳인지 알려주는 속성-->
+                        <p class="input-error"></p>
+                    </div>
+                    <div class="input-field password-field">
+                        <div class="password-input-wrap"> <!-- 오류문구까지 포함한 전체문구가 높이가 되므로 한번더 감싸서 img를 중앙정렬, <p>도 wrap밖으로 -->
+                            <input type="password" name="password" class="login-input" placeholder="비밀번호" autocomplete="current-password"/>
+                            <button type="button" class="password-toggle" aria-label="비밀번호 보기">
+                                <img src="../image/icon/icon_eye-off.svg"/>
+                            </button>
+                        </div>
+                        <p class="input-error"></p>
+                    </div>
+                </div>
+                <label class="login-remember"> <!-- label 요소로 묶으면 체크박스뿐만아니라 아이디저장을 눌러도 체크됨 -->
+                    <input type="checkbox"/>
+                    <span>아이디저장</span>
+                </label>
+                <button type="submit" class="login-submit">로그인</button>
+                <div class="login-forgot">
+                    <a href="#" class="forgot-tab">아이디 찾기</a>
+                    <div class="forgot-tab-line"></div>
+                    <a href="#" class="forgot-tab">비밀번호 찾기</a>
+                </div>
+            </form>
+            
+            
+            <!-- 계정 생성 -->
+            <form class="signup-form" novalidate>
+                <!-- 공통 -->
+                <div class="login-social">
+                    <button type="button" class="social-btn kakao">
+                        <img src="../image/icon/icon_kakao.png"/>
+                    </button>
+                    <button type="button" class="social-btn naver">
+                        <img src="../image/icon/icon_naver_h56.png"/>
+                    </button>
+                </div>
+                <div class="login-divider">
+                    <span>또는</span>
+                </div>
+                <!---->
+                <div class="signup-group">
+                    <div class="input-field">
+                        <input type="text" name="name" class="signup-input" placeholder="이름" autocomplete="name"/>
+                        <p class="input-error"></p>
+                    </div>
+                    <div class="input-field">
+                        <input type="email" name="email" class="signup-input" placeholder="이메일" autocomplete="email"/>
+                        <p class="input-error"></p>
+                    </div>
+                    <div class="input-field">
+                        <input type="tel" name="phone" class="signup-input" placeholder="핸드폰 번호" autocomplete="tel"/>
+                        <p class="input-error"></p>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" name="password" class="signup-input" placeholder="비밀번호" autocomplete="new-password"/>
+                        <p class="input-error"></p>
+                    </div>
+                    <div class="gender-select">
+                        <div class="selected">
+                            <span>성별 (선택)</span>
+                            <img src="../image/icon/icon_arrow_down.svg"/>
+                        </div>
+                        <ul class="gender-list">
+                            <li>성별 (선택)</li>
+                            <li>남성</li>
+                            <li>여성</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                <button type="submit" class="signup-submit">계정 생성하기</button>
+
+            </form>
+        </div>
+    
+    </div>
+
+    <div class="signup-message">계정 생성이 완료되었습니다.</div>
+
+</body>
+</html>

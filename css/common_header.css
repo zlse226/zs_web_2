@@ -1,0 +1,400 @@
+
+#site-header{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: fixed;  /* 위치가 항상 고정 */
+    top: 0; left: 0; /* fixed와 함께 위치 조정 */
+    padding: 0 30px;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#site-header.scroll{
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow:0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.icon-header {
+    width: 24px;
+    height: 24px;
+}
+.icon-header img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.cart{
+    position: relative;
+}
+
+.cart-count{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: -8px; /* 아이콘 오른쪽으로 이동 */
+    top: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    font-size: 10px;
+
+}
+
+
+.gnb-open{
+    cursor: pointer;
+}
+
+.main-logo {
+    width: 225px;
+    height: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* 자기 자신 너비의 50% */
+}
+
+.header-right{
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-left: auto;
+    cursor: pointer;
+
+}
+.search {
+    width: 190px;
+    height: 24px;
+    position: relative;
+}
+
+.search img{
+    width: 24px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-input {
+    font-size: 12px;
+    padding-top: 5px;
+    /* color: white; 내가 검색할 텍스트 색 */
+    cursor: text;
+
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: #000;
+    font-family: 'NexonLv1Gothic';
+}
+
+
+.search-line{
+    width: 160px;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    background-color: #000;
+}
+
+    /*_____모바일 검색창_______*/
+.mobile-search{
+    width: 100%;
+    height: auto;
+    /* min-height: 200px; */
+    position: fixed;
+    top: 60px;
+    left: 0;
+    display: none;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow:0 2px 10px rgba(0, 0, 0, 0.08);
+    z-index: 999; /* #site-header가 1000이므로 그 아래에 있게하기 위함 */
+    transform: translateY(calc(-100% - 60px)); /* 자기자신의높이 (-100%) - 헤더높이 60px */
+    transition: transform 0.4s ease;
+    padding: 20px;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.mobile-search.searchopen{
+    transform: translateY(0);
+}
+
+.mobile-search-box{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    gap: 10px;
+}
+.mobile-search-box input{
+    flex: 1; /* 중요! 아이콘을 제외한 나머지 부분을 전부 차지하게 함 */
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.mobile-search-box input::placeholder{
+    color: #808080;
+}
+
+.mobile-search-box img{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.mobile-search-recommend{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.recommend-list{
+    display: flex;
+    flex-wrap: wrap; /* 한줄에 안들어가면 줄바꿈 */
+    gap: 10px;
+}
+
+.recommend-list button{
+    width: auto;
+    padding: 8px 16px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    color: #666;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+    #site-header {
+        height: 60px;
+        padding: 0 10px;
+    }
+    .main-logo{
+        width: 130px;
+    }
+    .search{
+        width: 24px;
+    }
+    .search-input, .search-line{
+        display: none;
+    }
+    .login{
+        position: absolute;
+        left: calc((10px + 24px + 22px)); /* 줄었을때 padding + gnb아이콘 크기 + 기존 간격 */
+    }
+
+    .mobile-search {
+        display: flex; /* block은 단순하게 none에서 보이게하고 flex는 자식요소들이 gap을 쓰기위한 정렬 */
+        flex-direction: column;
+        width: 100%;
+    }
+    #site-header.searchopen{
+        /* 검색창이 열렸을때만 배경이 흰색이 되므로 */
+        background-color: #fff;
+    }
+}
+
+
+
+
+/*****************숨김 메뉴!! *********************/
+
+.gnb-overlay{
+    position: fixed; /* 고정, 뷰포트상에 */
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+    /* display: none; */
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.4s,
+                visibility 0s linear 0.4s;
+}
+
+.gnb-overlay.gnbactive{
+    /* display: block; */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s,
+                visibility 0s;
+}
+
+
+.gnb-content{
+    width: 270px;
+    height: 100vh;
+    background-color: #000;
+    color: #ffffff;
+    padding: 30px 18px 0; /* padding은 auto 안됨 */
+
+    /* 애니메이션과 위치 조정 */
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+}
+
+.gnb-overlay.gnbactive .gnb-content{
+    transform: translateX(0);
+}
+
+
+body.menu-open{ /* 본문 스크롤 막기 */
+    overflow: hidden;
+}
+
+.gnb-close{
+    width: 24px;
+    height: 24px;
+    /* margin-top: 30px; */
+    cursor: pointer;
+}
+
+.gnb-top{
+    width: 234px;
+    height: 95px;
+    margin: 47px 0 33px;
+    display: flex;
+    flex-direction: column;
+}
+
+.gnb-login{
+    width: 100%;
+    height: 34px;
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+    align-items: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.gnb-login-text{
+    font-size: 20px;
+}
+.gnb-login-arrow{
+    font-size: 12px;
+}
+
+.gnb-login-info{
+    font-size: 12px;
+    color: #808080;
+}
+
+.gnb-line{
+    width: 234px;
+    height: 1px;
+    background-color: #808080;
+    margin-top: auto; /* gnb-top에 flex, column과 같이 적용해야 남는 공간을 전부 위로보내서 맨 아래로 붙여준다 */
+}
+
+.gnb-bottom{
+    width: 234px;
+}
+
+
+.menu-title{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    border: none;
+    background: none;
+    outline: none; /* 클릭시 나타나는 파랑 테두리 제거 */
+    cursor: pointer;
+    color: #ffffff;
+}
+
+
+.menu-title img{
+    width: 25px;
+}
+.menu-title:focus-visible{
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.submenu{
+    height: auto;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 14px;
+    background-color: #1B1B1B;
+    
+    display: flex;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.8s ease, padding 0.8s ease;
+    padding: 0 0 0 18px;
+}
+.menu-item.active .submenu{ /* menu-title이 active시 submenu 보임 */
+    /* display: flex; */
+    max-height: 500px;
+    padding: 15px 0 24px 18px;
+}
+
+.submenu a{
+    height: 20px;
+    color: #808080;
+    text-decoration: none;
+}
+
+.submenu-notice{
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    /* margin-bottom: 10px; */
+}
+
+.submenu-notice-icon{
+    width: 20px;
+    padding-right: 5px;
+}
+
+.notice-list{
+    display: flex; /* none -> flex*/
+    flex-direction: column;
+    gap: 15px;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease;
+}
+.notice-list.open {
+    /* display: flex; */
+    max-height: 80px;
+
+}
+
+.submenu-line{
+    width: 209px;
+    height: 1px;
+    background-color: #808080;
+}

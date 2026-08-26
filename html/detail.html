@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 상세</title>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/common_header.css"/>
+    <link rel="stylesheet" href="../css/detail.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- defer: js파일은 미리 불러오되 html파일을 끝까지 읽은 다음 실행해라 -->
+    <script src="script.js" defer></script>
+    <script src="../js/common_header.js" defer></script>
+    <script src="../js/detail.js" defer></script>
+    
+</head>
+<body>
+    <div id="wrap">
+        <!-- 메인 헤더 -->
+        <div id="site-header">
+            <div class="icon-header gnb">
+                <img class="gnb-open" src="../image/icon/icon_menu.svg" alt="숨김 메뉴"/>
+            </div>
+            
+            <!-- 아코디언 메뉴 구성-->  
+            <div class="gnb-overlay">
+                <div class="gnb-content">
+                    <img class="gnb-close" src="../image/icon/icon_close.svg" alt="숨김 메뉴닫기"/>
+                    <div class="gnb-top">
+                        <a href="../html/login.html" class="gnb-login">
+                            <div class="gnb-login-text">LOGIN</div>
+                            <div class="gnb-login-arrow">></div>
+                        </a>
+                        <div class="gnb-login-info">
+                            <p>로그인 후 더 다양한 혜택을 확인해 보세요!</p>
+                        </div>
+                        <div class="gnb-line"></div>
+                    </div>
+
+                    <div class="gnb-bottom">
+                        <div class="con-menu">
+                            <div class="menu-item">
+                                <button class="menu-title">
+                                    <span>ABOUT</span>
+                                    <img class="menu-arrow-down" src="../image/icon/icon_arrow_down.png"/>
+                                </button> 
+                                <div class="submenu">
+                                    <a href="#">BRAND STORY</a>
+                                    <a href="#">LOOK</a>
+                                </div> 
+                            </div>
+                            <div class="menu-item">
+                                <button class="menu-title">
+                                    <span>SHOP</span>
+                                    <img class="menu-arrow-down" src="../image/icon/icon_arrow_down.png"/>
+                                </button> 
+                                <div class="submenu">
+                                    <a href="#">BEST</a>
+                                    <a href="#">NEW</a>
+                                    <a href="#">DOJACAT</a>
+                                    <a href="#">LIP</a>
+                                    <a href="#">FACE</a>
+                                    <a href="#">EYE</a>
+                                    <a href="#">BRUSH</a>
+                                    <a href="#">SKINCARE</a>
+                                </div> 
+                            </div>
+                            <div class="menu-item">
+                                <button class="menu-title">
+                                    <span>COMMUNITY</span>
+                                    <img class="menu-arrow-down" src="../image/icon/icon_arrow_down.png"/>
+                                </button> 
+                                <div class="submenu">
+                                    <button class="submenu-notice">
+                                        <span>NOTICE</span>
+                                        <img class="submenu-notice-icon" src="../image/icon/icon_plus.png"/>
+                                    </button>
+                                    <div class="notice-list">
+                                            <a href="#">공지사항</a>
+                                            <a href="#">FAQ</a>
+                                    </div>
+                                    <div class="submenu-line"></div>
+                                    <a href="#">EVENT</a>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a href="#" class="menu-title">
+                                    <span>MEMBERSHIP</span>
+                                </a> 
+                            </div>
+                            <div class="menu-item">
+                                <a href="#" class="menu-title">
+                                    <span>STORE</span>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-logo">
+                <img src="../image/icon/mac.svg" alt="헤더 로고"/>
+            </div>
+            <div class="header-right">
+                <div class="search">
+                    <input type="text" class="search-input" placeholder="검색어를 입력하세요"/>
+                    <div class="search-line"></div>
+                    <img class="mobile-search-icon" src="../image/icon/Icon_search.svg"/>
+                </div>
+                <a href="login.html" class="icon-header login">
+                    <img src="../image/icon/Icon_user.svg" alt="로그인"/>
+                </a>
+                <a href="cart.html" class="icon-header cart">
+                    <img src="../image/icon/Icon_shoppingbag.svg" alt="장바구니"/>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        <!-- 메인헤더 // 모바일에서 검색창 누를때 나타나는 창 -->
+        <div class="mobile-search">
+            <div class="mobile-search-box">
+                <input type="text" placeholder="검색어를 입력하세요"/>
+                <img src="../image/icon/Icon_search.svg"/>
+            </div>
+            <div class="mobile-search-recommend">
+                <p>추천 검색어</p>
+                <div class="recommend-list">
+                    <button>파운데이션</button>
+                    <button>쿠션</button>
+                    <button>립스틱</button>
+                    <button>아이섀도우</button>
+                    <button>블러셔</button>
+                    <button>프라이머</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 상품 상세 -->
+        <div class="section-shop">
+            <h1 class="product-title">SHOP</h1>
+            <div class="product-category">
+                <ul class="category-menu">
+                    <li><button type="button" class="category-btn" data-category="dojacat">DOJACAT</button></li>
+                    <li><button type="button" class="category-btn" data-category="all">ALL</button></li>
+                    <li><button type="button" class="category-btn" data-category="lip">LIP</button></li>
+                    <li><button type="button" class="category-btn" data-category="face">FACE</button></li>
+                    <li><button type="button" class="category-btn" data-category="eye">EYE</button></li>
+                    <li><button type="button" class="category-btn" data-category="brush">BRUSH</button></li>
+                    <li><button type="button" class="category-btn" data-category="skincare">SKINCARE</button></li>
+                    <li><button type="button" class="category-btn" data-category="others">OTHERS</button></li>
+                </ul>
+                <div class="product-count">
+                    <p>총 <span>nn</span>개 상품</p>
+                </div>
+
+                <div class="product-list">
+                    <!-- 도자캣 -->
+                    <!-- <div class="dojacat-content dojacat-img">
+                        <img src="../image/detail/dojacat_1.png"/>
+                    </div>
+                    <div class="product-item" data-category="lip">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/lip_lustreglass_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/lip_lustreglass_bc.png"/>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">NEW 러스터글래스 스테인글래스 립 틴트</p>
+                            <p class="info-subTitle">LUSTREGLASS STAINGGLASS LIP TINT</p>
+                            <p class="info-price">&#8361; 39,000</p>
+                            <p class="info-desc">지속 보습, 글로시 광택, 투명 컬러</p>
+                        </div>
+                    </div> -->
+                    <!-- 립 -->
+                    <div class="product-item" data-category="lip" data-best="true">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/lip_lustreglass_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/lip_lustreglass_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">NEW 러스터글래스 스테인글래스 립 틴트</p>
+                            <p class="info-subTitle">LUSTREGLASS STAINGGLASS LIP TINT</p>
+                            <p class="info-price">&#8361; 39,000</p>
+                            <p class="info-desc">지속 보습, 글로시 광택, 투명 컬러</p>
+                        </div>
+                        
+                    </div>
+                    <div class="product-item" data-category="lip">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/lip_powder kiss cheek_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/lip_powder kiss cheek_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">파우더 키스 립 + 치크 무스</p>
+                            <p class="info-subTitle">POWDER KISS LIP + CHEEK MOUSSE</p>
+                            <p class="info-price">&#8361; 49,000</p>
+                            <p class="info-desc">가벼운 텍스처, 소프트 커버리지, 샤인 매트</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="lip">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/lip_powder kiss hazy_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/lip_powder kiss hazy_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">파우더 키스 헤이지 매트 립스틱</p>
+                            <p class="info-subTitle">POWDER KISS HAZY MATTE LIPSTICK</p>
+                            <p class="info-price">&#8361; 42,000</p>
+                            <p class="info-desc">가벼운 텍스처, 소프트 커버리지, 샤인 매트</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="lip">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/lip_lustreglass sheer shine_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/lip_lustreglass sheer shine_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">러스터글래스 쉬어 샤인 립스틱</p>
+                            <p class="info-subTitle">LUSTREGLASS SHEER-SHINE LIPSTICK</p>
+                            <p class="info-price">&#8361; 39,000</p>
+                            <p class="info-desc">가벼운 텍스처, 빌더블 커버, 글로시 하이 샤인</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="lip">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/lip_maximal silky matte_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/lip_maximal silky matte_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">맥시멀 실키 매트 립스틱</p>
+                            <p class="info-subTitle">M・A・CXIMAL SILKY MATTE LIPSTICK</p>
+                            <p class="info-price">&#8361; 39,000</p>
+                            <p class="info-desc">실키 매트 피니시, 가벼운 피팅감</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="lip">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/lip_lipglass air_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/lip_lipglass air_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">립글라스 에어 논-스틱 글로스</p>
+                            <p class="info-subTitle">LIPGLASS AIR</p>
+                            <p class="info-price">&#8361; 39,000</p>
+                            <p class="info-desc">지속되는 수분감, 은은한 컬러, 글라스 광택</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="lip">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/lip_glowplay tendertalk_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/lip_glowplay tendertalk_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">글로우 플레이 텐더토크 립밤</p>
+                            <p class="info-subTitle">GLOWPALY TENDERTALK LIPBALM</p>
+                            <p class="info-price">&#8361; 38,000</p>
+                            <p class="info-desc">글로스 밤</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="lip">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/lip_squirt plumping_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/lip_squirt plumping_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">스쿼트 플럼핑 글로스 스틱</p>
+                            <p class="info-subTitle">SQUIRT PLUMPING GLOSS STICK</p>
+                            <p class="info-price">&#8361; 39,000</p>
+                            <p class="info-desc">글로스 밤</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="lip">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/lip_lip conditioner_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/lip_lip conditioner_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">립 컨디서녀 SPF 15</p>
+                            <p class="info-subTitle">LIP CONDITIONER (TUBE)</p>
+                            <p class="info-price">&#8361; 38,000</p>
+                            <p class="info-desc">Hydrating, Nourishing, Conditioning</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="lip">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/lip_pencil_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/lip_pencil_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">립 펜슬</p>
+                            <p class="info-subTitle">LIP PENCIL</p>
+                            <p class="info-price">&#8361; 38,000</p>
+                            <p class="info-desc">립 라이너, 19가지 컬러, 오버립</p>
+                        </div>
+                    </div>
+                    <!-- 페이스 -->
+                    <div class="product-item" data-category="face" data-new="true">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/face_studio radiance serum_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/face_studio radiance serum_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">스튜디오 래디언스 세럼-파워 파운데이션</p>
+                            <p class="info-subTitle">STUDIO RADIANCE SERUM-POWERED FOUNDATION</p>
+                            <p class="info-price">&#8361; 79,000</p>
+                            <p class="info-desc">세럼광파데, 글로우파데</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="face">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/face_STUDIO FIX LONGWEAR_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/face_STUDIO FIX LONGWEAR_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">스튜디오 픽스 롱웨어 쿠션 파운데이션 SPF 50/PA+++</p>
+                            <p class="info-subTitle">STUDIO FIX LONGWEAR CUSHION FOUNDATION</p>
+                            <p class="info-price">&#8361; 73,000</p>
+                            <p class="info-desc">새틴광쿠션, 24시간 초밀착 FIX, 컬러-트루 쉐이드</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="face">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/face_GLOW PLAY LIGHTFUL C3 TONE-UP_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/face_GLOW PLAY LIGHTFUL C3 TONE-UP_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">글로우 플레이 라이트풀 C3 톤-업 프라이머 SPF50+/PA+++</p>
+                            <p class="info-subTitle">GLOW PLAY LIGHTFUL C3 TONE-UP PRIMER SPF50+/PA+++</p>
+                            <p class="info-price">&#8361; 63,000</p>
+                            <p class="info-desc"></p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="face">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/face_TUDIO FIX 24HR_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/face_TUDIO FIX 24HR_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">스튜디오 픽스 24아워 컬러 코렉터</p>
+                            <p class="info-subTitle">STUDIO FIX 24HR COLOUR CORRECTOR</p>
+                            <p class="info-price">&#8361; 31,000</p>
+                            <p class="info-desc"></p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="face">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/face_STUDIO FIX FLUID_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/face_STUDIO FIX FLUID_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">스튜디오 픽스 플루이드 SPF 25/PA++ 스킨 밸런싱 콤 플렉스 롱웨어 소프트 매트 파운데이션</p>
+                            <p class="info-subTitle">STUDIO FIX FLUID SPF 25/PA++ SKIN BALANCING COMPLEX LONGWEAR SOFT MATTE FOUNDATION</p>
+                            <p class="info-price">&#8361; 73,000</p>
+                            <p class="info-desc">새틴광매트파데, 24시간 소프트 매트 피니시</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="face">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/face_LIGHTFUL C3 TONE-UP BALM_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/face_LIGHTFUL C3 TONE-UP BALM_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">[로즈 톤업 멀티밤] 라이트풀 C3 톤업 밤 SPF30/PA+++</p>
+                            <p class="info-subTitle">LIGHTFUL C3 TONE-UP BALM SPF30/PA+++</p>
+                            <p class="info-price">&#8361; 76,000</p>
+                            <p class="info-desc">핑크 톤업, 매끈 광채, 수분 밀착 래스팅</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="face">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/face_STUDIO FIX POWDER PLUS_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/face_STUDIO FIX POWDER PLUS_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">스튜디오 픽스 파우더 플러스 파운데이션</p>
+                            <p class="info-subTitle">STUDIO FIX POWDER PLUS FOUNDATION</p>
+                            <p class="info-price">&#8361; 73,000</p>
+                            <p class="info-desc">새틴블러팩트, 파우더</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="face">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/face_STUDIO FIX EVERY WEAR_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/face_STUDIO FIX EVERY WEAR_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">스튜디오 픽스 에브리-웨어 올-오버 페이스 펜</p>
+                            <p class="info-subTitle">STUDIO FIX EVERY WEAR ALL OVER FACE PEN</p>
+                            <p class="info-price">&#8361; 65,000</p>
+                            <p class="info-desc">올-인-원 페이스 펜</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="face">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/face_STUDIO RADIANCE MOISTURIZING_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/face_STUDIO RADIANCE MOISTURIZING_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">스튜디오 래디언스 모이스처라이징 + 일루미네이팅 실키 프라이</p>
+                            <p class="info-subTitle">STUDIO RADIANCE MOISTURIZING + ILLUMINATING SILKY PRIMER</p>
+                            <p class="info-price">&#8361; 60,000</p>
+                            <p class="info-desc">은은한 실크 광채, 수분 충전, 글로우 베이스</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="face">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/face_PRO PALETTE FULL COVERAGE_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/face_PRO PALETTE FULL COVERAGE_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">풀 커버리지 파운데이션 X 12구 팔레트</p>
+                            <p class="info-subTitle">PRO PALETTE FULL COVERAGE FOUNDATION X 12</p>
+                            <p class="info-price">&#8361; 92,000</p>
+                            <p class="info-desc"></p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="face">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/face_PRO LONGWEAR CONCEALER_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/face_PRO LONGWEAR CONCEALER_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">프로 롱웨어 컨실러</p>
+                            <p class="info-subTitle">PRO LONGWEAR CONCEALER</p>
+                            <p class="info-price">&#8361; 50,000</p>
+                            <p class="info-desc">15-Hour Wear, Waterproof, Transfer-Resistant</p>
+                        </div>
+                    </div>
+                    <!-- 아이 -->
+                    <div class="product-item" data-category="eye">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/eye_DAZZLESHADOW LIQUID_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/eye_DAZZLESHADOW LIQUID_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">맥대즐섀도우 리퀴드 4ML</p>
+                            <p class="info-subTitle">DAZZLESHADOW LIQUID EYE SHADOW</p>
+                            <p class="info-price">&#8361; 51,000</p>
+                            <p class="info-desc"></p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="eye">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/eye_METALLIC SINGLE_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/eye_METALLIC SINGLE_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">맥 대출섀도우 1G</p>
+                            <p class="info-subTitle">METALLIC SINGLE EYE SHADOW COMPACT</p>
+                            <p class="info-price">&#8361; 45,000</p>
+                            <p class="info-desc"></p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="eye">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/eye_EXTRA DIMENSION EYE SHADOW_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/eye_EXTRA DIMENSION EYE SHADOW_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">엑스트라 디멘션 아이섀도우</p>
+                            <p class="info-subTitle">EXTRA DIMENSION EYE SHADOW</p>
+                            <p class="info-price">&#8361; 45,000</p>
+                            <p class="info-desc">쉬어한 크리스탈부터 반짝이는 메탈릭 피니시까지 크리미 하면서도 실키한 포뮬러의 아이 섀도</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="eye">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/eye_POWDER KISS EYE SHADOW_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/eye_POWDER KISS EYE SHADOW_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">파우더 키스 아이 섀도우</p>
+                            <p class="info-subTitle">POWDER KISS EYE SHADOW</p>
+                            <p class="info-price">&#8361; 45,000</p>
+                            <p class="info-desc">울트라-크리미 매트 피니쉬, 블러 효과, 소프트 포커스 효과</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="eye">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/eye_PRO LONGWEAR PAINT POT_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/eye_PRO LONGWEAR PAINT POT_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">프로 롱웨어 페인트 팟</p>
+                            <p class="info-subTitle">PRO LONGWEAR PAINT POT</p>
+                            <p class="info-price">&#8361; 45,000</p>
+                            <p class="info-desc">초밀착 크림 텍스쳐, 24시간 픽스 메이크업, 올-인-원 멀티 유즈 섀도우</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="eye">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/eye_PRO PIGMENTS_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/eye_PRO PIGMENTS_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">프로 피그먼트</p>
+                            <p class="info-subTitle">PRO PIGMENTS</p>
+                            <p class="info-price">&#8361; 45,000</p>
+                            <p class="info-desc">피부에 잘 밀착 되는 루스 컬러 파우더</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="eye">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/eye_CONNECT IN COLOUR EYE x12_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/eye_CONNECT IN COLOUR EYE x12_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">커넥트 인 컬러 아이 섀도우 팔레트 X12 / 언필터드 누드스</p>
+                            <p class="info-subTitle">CONNECT IN COLOUR EYE SHADOW PALETTE X12/ UNFILTERED NUDES</p>
+                            <p class="info-price">&#8361; 92,000</p>
+                            <p class="info-desc">내추럴 누드</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="eye">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/eye_CONNECT IN COLOUR EYE x6_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/eye_CONNECT IN COLOUR EYE x6_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">커넥트 인 컬러 아이 섀도우 팔레트 X6 / 로즈 렌즈</p>
+                            <p class="info-subTitle">CONNECT IN COLOUR EYE SHADOW PALETTE X6 / ROSELENS</p>
+                            <p class="info-price">&#8361; 76,000</p>
+                            <p class="info-desc"></p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="eye">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/eye_DAZZLE SHADOW EYE SHADOW STICK_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/eye_DAZZLE SHADOW EYE SHADOW STICK_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">대즐섀도우 아이 섀도우 스틱</p>
+                            <p class="info-subTitle">DAZZLE SHADOW EYE SHADOW STICK</p>
+                            <p class="info-price">&#8361; 45,000</p>
+                            <p class="info-desc">스틱섀도우, 글리터</p>
+                        </div>
+                    </div>
+                    <!-- 브러쉬 -->
+                    <div class="product-item" data-category="brush">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/brush_184 DUO FIBRE FAN_fr.png"/>
+                            <img class="product-img-back" src="../image/detail"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">184 듀오 파이버 팬 브러시</p>
+                            <p class="info-subTitle">184 DUO FIBRE FAN</p>
+                            <p class="info-price">&#8361; 44,000</p>
+                            <p class="info-desc"></p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="brush">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/brush_171S SMOOTH EDGE_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/brush_171S SMOOTH EDGE_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">171S 스무스-엣지 올 오버 페이스 브러시</p>
+                            <p class="info-subTitle">171S SMOOTH EDGE ALL OVER FACE BRUS</p>
+                            <p class="info-price">&#8361; 57,000</p>
+                            <p class="info-desc">리퀴드, 파운데이션, 크림, 에멀전 브러시</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="brush">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/brush_191 SQUARE FOUNDATION_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/brush_191 SQUARE FOUNDATION_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">191스퀘어 파운데이션 브러시</p>
+                            <p class="info-subTitle">191 SQUARE FOUNDATION BRUSH</p>
+                            <p class="info-price">&#8361; 54,000</p>
+                            <p class="info-desc">For Foundation, Flat Square-Shaped, Shades Face</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="brush">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/brush_001 SERUM + MOISTURIZER_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/brush_001 SERUM + MOISTURIZER_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">하이퍼 리얼 001 모이스처라이저 브러시</p>
+                            <p class="info-subTitle">001 SERUM + MOISTURIZER BRUSH</p>
+                            <p class="info-price">&#8361; 54,000</p>
+                            <p class="info-desc">브러시, 스킨케어 전용, 마사지 효과</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="brush">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/brush_182 BUFFER_fr.png"/>
+                            <img class="product-img-back" src="../image/detail"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">182 버퍼 브러쉬</p>
+                            <p class="info-subTitle">182 BUFFER</p>
+                            <p class="info-price">&#8361; 75,000</p>
+                            <p class="info-desc"></p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="brush">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/brush_BRUSH CLEANSER_fr.png"/>
+                            <img class="product-img-back" src="../image/detail"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">브러쉬 클렌저</p>
+                            <p class="info-subTitle">BRUSH CLEANSER</p>
+                            <p class="info-price">&#8361; 27,000</p>
+                            <p class="info-desc">브러시 세척, 브러쉬 클렌저</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="brush">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/brush_BRUSH KIT_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/brush_BRUSH KIT_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">MAC OF ALL TRAZE BRUSH KIT</p>
+                            <p class="info-subTitle">맥 오브 올 트레이즈 브러시 키트</p>
+                            <p class="info-price">&#8361; 110,000</p>
+                            <p class="info-desc"></p>
+                        </div>
+                    </div>
+                    <!-- 스킨케어 -->
+                    <div class="product-item" data-category="skincare">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/skinacare_HYPER REAL SERUMIZER_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/skinacare_HYPER REAL SERUMIZER_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">하이퍼 리얼™ 세러마이저 스킨 밸런싱 하이드레이션 세럼</p>
+                            <p class="info-subTitle">HYPER REAL SERUMIZER™ SKIN BALANCING HYDRATION SERUM</p>
+                            <p class="info-price">&#8361; 57,000</p>
+                            <p class="info-desc">꽃잎 세럼, 수분 밸런스, 피부결 케어, 피부 장벽 강화</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="skincare">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/skincare_HYPER REAL SKINCANVERSE_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/skincare_HYPER REAL SKINCANVERSE_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">하이퍼 리얼 스킨캔버스 에센스™ 래디언스 리부트, 150ML</p>
+                            <p class="info-subTitle">HYPER REAL SKINCANVERSE ESSENCE™ RADIANCE REBOOT</p>
+                            <p class="info-price">&#8361; 87,000</p>
+                            <p class="info-desc"></p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="skincare">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/skincare_YPER REAL SKINCANVAS BALM_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/skincare_YPER REAL SKINCANVAS BALM_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">하이퍼 리얼 스킨캔버스 밤™ 모이스처라이징 크림</p>
+                            <p class="info-subTitle">HYPER REAL SKINCANVAS BALM™ MOISTURIZING CREAM</p>
+                            <p class="info-price">&#8361; 42,000</p>
+                            <p class="info-desc">캔버스 밤, 고보습, 너리싱, 수분광</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="skincare">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/skincare_HYPER REAL SKINCANVAS WATERLIGHT_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/skincare_HYPER REAL SKINCANVAS WATERLIGHT_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">하이퍼 리얼 스킨캔버스™ 워터라이트 크림</p>
+                            <p class="info-subTitle">HYPER REAL SKINCANVAS™ WATERLIGHT CREAM HA3 MOISTURIZER</p>
+                            <p class="info-price">&#8361; 82,000</p>
+                            <p class="info-desc"></p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="skincare">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/skincare_STUDIO RADIANCE MOISTURIZING_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/skincare_STUDIO RADIANCE MOISTURIZING_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">스튜디오 래디언스 모이스처라이징 + 일루미네이팅 실키 프라이</p>
+                            <p class="info-subTitle">STUDIO RADIANCE MOISTURIZING + ILLUMINATING SILKY PRIMER</p>
+                            <p class="info-price">&#8361; 60,000</p>
+                            <p class="info-desc">은은한 실크 광채, 수분 충전, 글로우 베이스</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="skincare">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/skincare_ESSENTIAL OILS_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/skincare_ESSENTIAL OILS_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">프렙+프라임 에센셜 오일 그레이프프룻 6 카모마일</p>
+                            <p class="info-subTitle">PREP + PRIME ESSENTIAL OILS GRAPEFRUIT& CHAMOMILE</p>
+                            <p class="info-price">&#8361; 51,000</p>
+                            <p class="info-desc">그레이프프룻 & 카모마일</p>
+                        </div>
+                    </div>
+                    <!-- 아덜 -->
+                    <div class="product-item" data-category="others">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/other_YE SHADOW PRO PALETTE_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/other_YE SHADOW PRO PALETTE_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">아이섀도우 프로 팔레트</p>
+                            <p class="info-subTitle">EYE SHADOW PRO PALETTE</p>
+                            <p class="info-price">&#8361; 23,000</p>
+                            <p class="info-desc">촉촉하거나 건조하게 사용 가능</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="others">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/other_BEST BUDS LIP COMBO_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/other_BEST BUDS LIP COMBO_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">베스트 버즈 립 콤보</p>
+                            <p class="info-subTitle">BEST BUDS LIP COMBO</p>
+                            <p class="info-price">&#8361; 69,000</p>
+                            <p class="info-desc">프로스팅, 보데이셔스</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="others">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/other_WILDEST BEAMS STROBE LIQUID BLUSH COMBO_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/other_WILDEST BEAMS STROBE LIQUID BLUSH COMBO_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">와일디스트 빔즈 스트롭 리퀴드 브러쉬 콤보</p>
+                            <p class="info-subTitle">WILDEST BEAMS STROBE LIQUID BLUSH COMBO</p>
+                            <p class="info-price">&#8361; 59,000</p>
+                            <p class="info-desc">아이스 글림, 애프리콧 젤리</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="others">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/other_PRO PALETTE_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/other_PRO PALETTE_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">프로 아이섀도우 팔레트</p>
+                            <p class="info-subTitle">PRO PALETTE EYE SHADOW X2</p>
+                            <p class="info-price">&#8361; 12,000</p>
+                            <p class="info-desc">얇고 휴대가 편리한 2구 팔레트</p>
+                        </div>
+                    </div>
+                    <div class="product-item" data-category="others">
+                        <div class="product-img">
+                            <img class="product-img-front" src="../image/detail/other_FIX+ STAY OVER_fr.png"/>
+                            <img class="product-img-back" src="../image/detail/other_FIX+ STAY OVER_bc.png"/>
+                            <div class="product-action">
+                                <button type="button" class="heart-btn">
+                                    <img src="../image/icon/icon_heart.svg" alt="찜하기"/>
+                                </button>
+                                <button type="button" class="cart-btn">
+                                    <img src="../image/icon/icon_shopping-cart.svg" alt="장바구니"/>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="info-title">픽스 스테이오버</p>
+                            <p class="info-subTitle">FIX+ STAY OVER</p>
+                            <p class="info-price">&#8361; 35,000</p>
+                            <p class="info-desc">롱래스팅 피서, 뭉침 없는 미세 안개 분사 미스트</p>
+                        </div>
+                    </div>
+                    
+
+
+
+
+                </div>
+            </div>
+
+            <!-- 페이지네이션 -->
+            <div class="pagination">
+                <button type="button" class="page-frist">
+                    <img src="../image/icon/icon_chevrons-first.svg"/>
+                </button>
+                <button type="button" class="page-prev">
+                    <img src="../image/icon/icon_chevron-prev.svg"/>
+                </button>
+                <div class="page-number">
+                    <button type="button" class="page-btn" active>1</button>
+                </div>
+                <button type="button" class="page-next">
+                    <img src="../image/icon/icon_chevron-next.svg"/>
+                </button>
+                <button type="button" class="page-last">
+                    <img src="../image/icon/icon_chevrons-last.svg"/>
+                </button>
+            </div>
+
+            <!-- 푸터 -->
+            <div id="footer"></div>
+        </div>
+    
+    <!-- 장바구니 알림창 -->
+    <div class="cart-message">장바구니에 담겼습니다.</div>
+
+</body>
+</html>

@@ -5,7 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MAC</title>  <!-- 홈페이지 tab 제목-->
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/common_header.css" />
     <link rel="stylesheet" href="style.css" />
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
@@ -22,10 +25,10 @@
                 <div class="gnb-content">
                     <img class="gnb-close" src="image/icon/icon_close.svg" alt="숨김 메뉴닫기"/>
                     <div class="gnb-top">
-                        <div class="gnb-login">
+                        <a href="html/login.html" class="gnb-login">
                             <div class="gnb-login-text">LOGIN</div>
                             <div class="gnb-login-arrow">></div>
-                        </div>
+                        </a>
                         <div class="gnb-login-info">
                             <p>로그인 후 더 다양한 혜택을 확인해 보세요!</p>
                         </div>
@@ -100,16 +103,36 @@
                 <div class="search">
                     <input type="text" class="search-input" placeholder="검색어를 입력하세요"/>
                     <div class="search-line"></div>
-                    <img src="image/icon/Icon_search.svg"/>
+                    <img class="mobile-search-icon" src="image/icon/Icon_search.svg"/>
                 </div>
-                <div class="icon-header login">
+                <a href="html/login.html" class="icon-header login">
                     <img src="image/icon/Icon_user.svg" alt="로그인"/>
-                </div>
-                <div class="icon-header cart">
+                </a>
+                <a href="html/cart.html" class="icon-header cart">
                     <img src="image/icon/Icon_shoppingbag.svg" alt="장바구니"/>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        <!-- 메인헤더 // 모바일에서 검색창 누를때 나타나는 창 -->
+        <div class="mobile-search">
+            <div class="mobile-search-box">
+                <input type="text" placeholder="검색어를 입력하세요"/>
+                <img src="image/icon/Icon_search.svg"/>
+            </div>
+            <div class="mobile-search-recommend">
+                <p>추천 검색어</p>
+                <div class="recommend-list">
+                    <button>파운데이션</button>
+                    <button>쿠션</button>
+                    <button>립스틱</button>
+                    <button>아이섀도우</button>
+                    <button>블러셔</button>
+                    <button>프라이머</button>
                 </div>
             </div>
         </div>
+
         <!-- 메인 배너 -->
         <div id="hero">
             <div class="banner-slide">
@@ -168,61 +191,63 @@
                 </div>
             </div>
         </div>
+        
         <!-- 퀵 메뉴 -->
         <div id="quick-menu">
             <div class="quick-menu-inner">
-                <a href="#">
+                <a href="html/detail.html">
                     <div class="quick-menu-prod">
                         <img src="image/prod_arrival.png"/>
                     </div>
-                    <div class="quick-menu-label">신제품</div>
+                    <div class="quick-menu-label">NEW</div>
                 </a>
-                <a href="#">
+                <a href="html/detail.html?category=dojacat">
                     <div class="quick-menu-prod">
                         <img src="image/prod_dojacat.png"/>
                     </div>
-                    <div class="quick-menu-label">도자캣</div>
+                    <div class="quick-menu-label">DOJACAT</div>
                 </a>
-                <a href="#">
+                <a href="html/detail.html">
                     <div class="quick-menu-prod">
                         <img src="image/prod_bestseller.png"/>
                     </div>
-                    <div class="quick-menu-label">베스트<br/>셀러</div>
+                    <div class="quick-menu-label">BEST<br/>SELLER</div>
                 </a>
-                <a href="#">
+                <a href="html/detail.html?category=lip">
                     <div class="quick-menu-prod">
                         <img src="image/prod_lip.png"/>
                     </div>
-                    <div class="quick-menu-label">립</div>
+                    <div class="quick-menu-label">LIP</div>
                 </a>
-                <a href="#">
+                <a href="html/detail.html?category=face">
                     <div class="quick-menu-prod">
                         <img src="image/prod_face.png"/>
                     </div>
-                    <div class="quick-menu-label">페이스</div>
-                </a>
-                <a href="#">
+                    <div class="quick-menu-label">FACE</div>
+                </a> 
+                <a href="html/detail.html?category=eye">
                     <div class="quick-menu-prod">
                         <img src="image/prod_eye.png"/>
                     </div>
-                    <div class="quick-menu-label">아이</div>
+                    <div class="quick-menu-label">EYE</div>
                 </a>
-                <a href="#">
+                <a href="html/detail.html?category=brush">
                     <div class="quick-menu-prod">
                         <img src="image/prod_brush.png"/>
                     </div>
-                    <div class="quick-menu-label">브러쉬</div>
+                    <div class="quick-menu-label">BRUSH</div>
                 </a>
-                <a href="#">
+                <a href="html/detail.html?category=skincare">
                     <div class="quick-menu-prod">
                         <img src="image/prod_skincare.png"/>
                     </div>
-                    <div class="quick-menu-label">스킨케어</div>
+                    <div class="quick-menu-label">SKINCARE</div>
                 </a>
 
             </div>
         </div>
         <!-- 베스트 셀러 -->
+         
         <div id="section-best-seller">
             <div class="section-title">BEST SELLER</div>
             <div class="best-seller-list">
@@ -323,10 +348,9 @@
                     </div>
                 </div>
             </div>
-            <div class="section-more">
+            <a href="html/detail.html?filter=best" class="section-more">
                 <span>VIEW MORE</span>
-            </div>
-            
+            </a>
         </div>
 
         <!-- 신제품 -->
@@ -440,11 +464,9 @@
                     </div>
                 </div>
             </div>
-            <div class="section-more">
-                <span>
-                    VIEW MORE
-                </span>
-            </div>
+            <a href="html/detail.html?filter=new" class="section-more">
+                <span>VIEW MORE</span>
+            </a>
 
         </div>
 
@@ -557,7 +579,10 @@
         </div>
 
     </div>
+    <!-- deploy retry -->
+
    <script src="script.js"></script>
+   <script src="js/common_header.js"></script>
 </body>
 
 <!-- 다하고나면 무한 슬라이드 active형식말고 clone(복사) 형식으로 만들어보기 -->

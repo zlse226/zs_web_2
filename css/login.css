@@ -1,0 +1,351 @@
+.header-back{
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.back-btn{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.header-home{
+    margin-left: auto;
+}
+
+#login{
+    width: 600px;
+    margin: 300px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+}
+
+.login-tab{
+    width: 100%;
+    min-height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1.2em;
+    border-bottom: 1px solid #ccc;
+}
+
+.login-tab-btn{
+    width: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.login-tab-btn.active{
+    color: #000;
+}
+.login-tab-btn.active::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+}
+
+.login-form, .signup-form{
+    width: 400px;
+    display: none;
+    flex-direction: column;
+}
+.login-form.active, .signup-form.active{
+    display: flex;
+}
+
+.login-social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    gap: 20px;
+}
+
+.social-btn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.kakao{
+    background-color: #FEE500;
+}
+.naver{
+    background-color: #079f44;
+}
+
+
+
+.login-divider{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto 30px;
+}
+.login-divider::before,
+.login-divider::after{
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.login-group{
+    width: 100%;
+    gap: 12px; /* 20px -> 12px (에러문구 들어가므로) */
+    display: flex;
+    flex-direction: column;
+}
+
+.login-field{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-input, .signup-input{
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    color: #777;
+}
+
+.input-error{
+    /* 입력값 유효성 검사 문구 */
+    min-height: 18px;
+    margin-top: 5px;
+    color: #e53935;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.login-input.input-invalid,
+.signup-input.input-invalid {
+    /* 유효하지 않은 input */
+    /* input-invalid: javascript가 유효성 검사에 실패(오류가 발생)했을 때 동적으로 추가하는 클래스 */
+    /* 검사 실패 후 css가 적용되어 빨간 테두리가 된다 */
+    border: 1px solid #e53935;
+    outline: none;
+}
+.login-input.input-invalid:focus,
+.signup-input.input-invalid:focus {
+    /* 유효하지 않은 input을 선택했을 때 */
+    box-shadow: 0 0 0 2px rgb(229 57 53 / 15%);
+}
+
+
+.login-remember{
+    margin:20px 0;
+    display: inline-flex;
+    align-items: center;
+    user-select: none; /* 텍스트 더블클릭 선택 방지 */
+    cursor: pointer;
+}
+
+
+/* 기존 체크박스 숨기기 */
+.login-remember input[type="checkbox"]{
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.login-remember span{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* 새 체크박스 */
+.login-remember span::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: all 0.2s ease; /* 부드러운 애니메이션 효과 */
+}
+
+/* 체크됐을 때 */
+.login-remember input:checked + span::before{
+    background-color: #000;
+    border-color: #000;
+}
+
+/* 체크 표시 전체 */
+.login-remember span::after{
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    width: 5px;
+    height: 9px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+/* 체크했을 때 체크 표시 보이기 */
+.login-remember input:checked + span::after{
+    opacity: 1;
+}
+
+
+.login-submit, .signup-submit{
+    height: 50px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+    background-color: #ccc;
+}
+
+.login-submit:hover, .signup-submit:hover{
+    background: #c2c2c2;
+}
+
+.login-forgot{
+    display: flex;
+    gap: 20px;
+    margin: 40px 0 80px;
+    cursor: pointer;
+}
+
+.forgot-tab:hover{
+    border-bottom: 1px solid #000;
+}
+
+.forgot-tab-line{
+    border-right: 1px solid #ccc;
+}
+
+/* 비밀번호 show/off */
+.password-input-wrap {
+    position: relative;
+}
+.password-input-wrap .login-input {
+    /* 버튼이 들어갈 공간 확보 */
+    width: 100%;
+    padding-right: 50px;
+}
+.password-toggle{
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.password-toggle img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/*/////////////////////////////////////////////////////////////*/
+
+.signup-group{
+    width: 100%;
+    gap: 12px;  /* 20px -> 12px (에러문구 들어가므로) */
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-submit{
+    margin: 40px 0 80px;
+}
+
+.gender-select{
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
+.selected{
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(118, 118, 118);
+    color: #777;
+    cursor: pointer;
+    justify-content: space-between;
+}
+.selected img{
+    width: 20px;
+    height: 20px;
+}
+.gender-list{
+    width: 100%;
+    position: absolute;
+    border: 1px solid rgb(118, 118, 118);
+    border-top: none;
+    color: #777;
+    z-index: 20;
+    display: none;
+}
+
+.gender-list li{
+    height: 50px;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    border-top: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+.gender-list li:hover{
+    background-color: #f5f5f5;
+}
+
+.signup-message{
+    width: 500px;
+    height: 100px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 10;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    font-size: 1.5em;
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0; /* 그냥 가려지는것. visibility해야 클릭때 방해되지 않음 */
+    visibility: hidden; /* 숨겼을때 클릭 방해 방지 */
+    pointer-events: none; /* 마우스 이벤트 통과 */
+
+}
+.signup-message.show{
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%);
+}

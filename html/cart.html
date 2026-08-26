@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니</title>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/common_header.css"/>
+    <link rel="stylesheet" href="../css/cart.css"/>
+    <script src="script.js" defer></script>
+    <script src="../js/common_header.js" defer></script>
+    <script src="../js/cart.js" defer></script>
+</head>
+<body>
+    <div class="wrap">
+        <!-- 메인 헤더 -->
+        <div id="site-header">
+            <div class="icon-header gnb">
+                <img class="gnb-open" src="../image/icon/icon_menu.svg" alt="숨김 메뉴"/>
+            </div>
+            
+            <!-- 아코디언 메뉴 구성-->  
+            <div class="gnb-overlay">
+                <div class="gnb-content">
+                    <img class="gnb-close" src="../image/icon/icon_close.svg" alt="숨김 메뉴닫기"/>
+                    <div class="gnb-top">
+                        <a href="../html/login.html" class="gnb-login">
+                            <div class="gnb-login-text">LOGIN</div>
+                            <div class="gnb-login-arrow">></div>
+                        </a>
+                        <div class="gnb-login-info">
+                            <p>로그인 후 더 다양한 혜택을 확인해 보세요!</p>
+                        </div>
+                        <div class="gnb-line"></div>
+                    </div>
+
+                    <div class="gnb-bottom">
+                        <div class="con-menu">
+                            <div class="menu-item">
+                                <button class="menu-title">
+                                    <span>ABOUT</span>
+                                    <img class="menu-arrow-down" src="../image/icon/icon_arrow_down.png"/>
+                                </button> 
+                                <div class="submenu">
+                                    <a href="#">BRAND STORY</a>
+                                    <a href="#">LOOK</a>
+                                </div> 
+                            </div>
+                            <div class="menu-item">
+                                <button class="menu-title">
+                                    <span>SHOP</span>
+                                    <img class="menu-arrow-down" src="../image/icon/icon_arrow_down.png"/>
+                                </button> 
+                                <div class="submenu">
+                                    <a href="#">BEST</a>
+                                    <a href="#">NEW</a>
+                                    <a href="#">DOJACAT</a>
+                                    <a href="#">LIP</a>
+                                    <a href="#">FACE</a>
+                                    <a href="#">EYE</a>
+                                    <a href="#">BRUSH</a>
+                                    <a href="#">SKINCARE</a>
+                                </div> 
+                            </div>
+                            <div class="menu-item">
+                                <button class="menu-title">
+                                    <span>COMMUNITY</span>
+                                    <img class="menu-arrow-down" src="../image/icon/icon_arrow_down.png"/>
+                                </button> 
+                                <div class="submenu">
+                                    <button class="submenu-notice">
+                                        <span>NOTICE</span>
+                                        <img class="submenu-notice-icon" src="../image/icon/icon_plus.png"/>
+                                    </button>
+                                    <div class="notice-list">
+                                            <a href="#">공지사항</a>
+                                            <a href="#">FAQ</a>
+                                    </div>
+                                    <div class="submenu-line"></div>
+                                    <a href="#">EVENT</a>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a href="#" class="menu-title">
+                                    <span>MEMBERSHIP</span>
+                                </a> 
+                            </div>
+                            <div class="menu-item">
+                                <a href="#" class="menu-title">
+                                    <span>STORE</span>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-logo">
+                <img src="../image/icon/mac.svg" alt="헤더 로고"/>
+            </div>
+            <div class="header-right">
+                <div class="search">
+                    <input type="text" class="search-input" placeholder="검색어를 입력하세요"/>
+                    <div class="search-line"></div>
+                    <img class="mobile-search-icon" src="../image/icon/Icon_search.svg"/>
+                </div>
+                <a href="login.html" class="icon-header login">
+                    <img src="../image/icon/Icon_user.svg" alt="로그인"/>
+                </a>
+                <a href="cart.html" class="icon-header cart">
+                    <img src="../image/icon/Icon_shoppingbag.svg" alt="장바구니"/>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        <!-- 메인헤더 // 모바일에서 검색창 누를때 나타나는 창 -->
+        <div class="mobile-search">
+            <div class="mobile-search-box">
+                <input type="text" placeholder="검색어를 입력하세요"/>
+                <img src="../image/icon/Icon_search.svg"/>
+            </div>
+            <div class="mobile-search-recommend">
+                <p>추천 검색어</p>
+                <div class="recommend-list">
+                    <button>파운데이션</button>
+                    <button>쿠션</button>
+                    <button>립스틱</button>
+                    <button>아이섀도우</button>
+                    <button>블러셔</button>
+                    <button>프라이머</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 장바구니 영역 -->
+        <div class="shopping-cart">
+            <h1 class="cart-title">CART</h1>
+            <div class="cart-content">
+                <!-- 왼쪽 - 장바구니 상품 목록 -->
+                <section class="cart-list"> <!-- secton: 그 영역을 상징하는 제목이 있는 때에 사용 -->
+                    <div class="cart-toolbar">
+                        <label class="cart-select-all">
+                            <input type="checkbox" class="select-all-checkbox"/>
+                            <span>전체선택</span>
+                        </label>
+                        <button type="button" class="cart-delete-select">선택제품 삭제</button>
+                    </div>
+                    <!-- 아이템명, 옵션, 가격 -->
+                    <div class="cart-empty">
+                        <div class="cart-empty-icon">
+                            <img src="../image/icon/Icon_shoppingbag.svg"/>
+                        </div>
+                        <p>장바구니에 담긴 상품이 없습니다</p>
+                    </div>
+                    <div class="cart-items"></div>
+                    <!-- <div class="cart-item">
+                        <div class="left-cont">
+                            <label class="cart-item-check">
+                                <input type="checkbox"/>
+                            </label>
+                            <div class="cart-item-image">
+                                <img src="../image/bestseller_1.png"/>
+                            </div>
+                        </div>
+                        <div class="right-cont">
+                            <div class="cont-top">
+                                <div class="cart-item-name">예비 아이템명</div>
+                                <button type="button" class="cart-item-remove">
+                                    <img src="../image/icon/icon_close_b.svg"/>
+                                </button>
+                            </div>
+                            <div class="cont-center">
+                                <div class="cart-item-option">
+                                    <span class="option-value">
+                                        옵션:<span class="selected-option">01 심장폭격</span>
+                                        <button type="button" class="option-change">옵션변경</button>
+                                        <ul class="option-list">
+                                            <li>01 심장폭격</li>
+                                            <li>02 만찢코랄</li>
+                                            <li>03 레드맛집</li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="cont-bottom">
+                                <div class="cart-price">&#8361; 45,000</div>
+                                <div class="cart-quantity">
+                                    <button type="button" class="quantity-minus">
+                                        <img src="../image/icon/icon_minus_b.svg"/>
+                                    </button>
+                                    <span class="quantity-value">1</span>
+                                    <button type="button" class="quantity-plus">
+                                        <img src="../image/icon/icon_plus_b.svg"/>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </section>
+
+                <!-- 오른쪽 - 결제금액란 -->
+                <aside class="cart-summary"> <!-- 메인컨텐츠와 관련있으나 이를 보조하는 영역 -->
+                    <h2 class="cart-summary-title">결제 금액</h2>
+                    <div class="summary-top">
+                        <div class="cart-summary-row">
+                            <span>총 상품금액</span>
+                            <strong class="summary-product">원</strong> <!-- strong: 내용중에서 중요도가 높은 부분을 의미적으로 강조, 기본적으로 글씨굵기가 굵음 -->
+                        </div>
+                        <div class="cart-summary-row">
+                            <span>총 할인금액</span>
+                            <strong class="summary-discount">원</strong>
+                        </div>
+                        <div class="cart-summary-row">
+                            <span>배송비</span>
+                            <strong class="summary-delivery">원</strong>
+                        </div>
+                    </div>
+                    <div class="summary-bottom">
+                        <div class="cart-summary-total">
+                            <span>총 결제금액</span>
+                            <strong class="summary-total">원</strong>
+                        </div>
+                        <button type="button" class="cart-order">상품 주문하기</button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

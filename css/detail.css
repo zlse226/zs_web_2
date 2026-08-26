@@ -1,0 +1,241 @@
+.section-shop{
+    margin: 250px auto 0;
+    display: flex;
+    flex-direction: column;
+}
+.product-title{
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.product-category{
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto 0;
+}
+
+.category-menu{
+    margin: 35px auto;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-bottom: 1px solid #ccc;
+}
+
+.category-btn{
+    font-size: 1.3em;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding-bottom: 13px;
+    position: relative;
+}
+
+.category-btn:hover{
+    color: #ccc;
+}
+
+.category-btn.active{
+    color: #000;
+}
+
+.category-btn.active::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+}
+
+.product-count{
+    padding: 10px;
+    margin: 100px auto 50px;
+    color: #757575;
+}
+
+.product-count span{
+    color: #000;
+    font-weight: bold;
+}
+
+.product-list{
+    width: 100%;
+    /* max-width: 1945px; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 18px;
+    row-gap: 4rem;
+}
+
+.product-item{
+    display: none;
+}
+.product-item.active{
+    display: block;
+}
+
+.product-img{
+    width: 100%;
+    aspect-ratio: 302 / 360;
+    position: relative;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.product-img-front,
+.product-img-back{ /* product-img img하면 장바구니 아이콘까지 다 적용되므로 변경*/
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.product-img:hover > .product-img-front,
+.product-img:hover > .product-img-back{
+    transform: scale(1.05);
+}
+
+.product-img-front{
+    opacity: 1;
+}
+
+.product-img-back{
+    opacity: 0;
+}
+
+.product-info{
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+
+.info-title{
+    width: 100%;
+    /* height: 45px; 글자줄수 x 실제 한줄 높이 */
+    min-height: 44px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    cursor: pointer;
+    
+}
+
+.info-subTitle{
+    width: 100%;
+    min-height: 40px;
+    margin-bottom: 10px;
+    color: #727272;
+}
+
+.info-price{
+    min-height: 20px;
+    margin-bottom: 10px;
+}
+.info-desc{
+    min-height: 40px;
+}
+
+.info-title, .info-subTitle, .info-desc{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: keep-all;   /* 글자를 중간에서 쪼개지않고 단어 단위로 다음줄로 넘김 */
+    overflow-wrap: break-word;
+}
+
+/* 하트랑 장바구니 */
+.product-action{
+    width: auto;
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 5;
+}
+
+.heart-btn, .cart-btn{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.heart-btn img, .cart-btn img{
+    width: 100%;
+    height: 100%;
+    display: block; /* 이미지 안에 baseline 제거 */
+    object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+    .product-list{
+        display: grid;
+        grid-template-columns: repeat(2, 345px);
+    }
+    
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 200px auto;
+    gap: 30px;
+}
+
+.pagination button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.page-number{
+    font-weight:400;
+}
+
+#footer{
+    width: 100%;
+    height: 600px;
+    background-color: #000;
+}
+
+.cart-message{
+    width: 500px;
+    height: 100px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    z-index: 10;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    font-size: 1.5em;
+    transition: opacity 0.3s, transform 0.3s;
+    visibility: hidden; /* 숨겼을때 클릭 방해 방지 */
+    pointer-events: none; /* 마우스 이벤트 통과 */
+}
+
+.cart-message.show{
+    opacity: 1;
+    visibility: visible; /* 이걸해야 숨겨진 영역에 클릭시 방해되지않음 */
+    transform: translate(-50%, -50%);
+}
