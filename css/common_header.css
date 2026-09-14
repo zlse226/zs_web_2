@@ -58,6 +58,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%); /* 자기 자신 너비의 50% */
+    cursor: pointer;
 }
 
 .header-right{
